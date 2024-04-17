@@ -10,7 +10,15 @@ var level = 0;
 // pressing any key event
 $(document).on("keydown", () => {
   if (!gameStarted) {
+    $(".replay")
+      .fadeOut(100)
+      .fadeIn(100)
+      .fadeOut(100)
+      .fadeIn(100)
+      .fadeOut(100)
+      .fadeIn(100);
     setTimeout(() => {
+      $(".replay").css({ "z-index": "-1", visibility: "hidden" });
       newSequence();
     }, 1000);
     gameStarted = true;
@@ -21,7 +29,15 @@ $(document).on("keydown", () => {
 $(".scoreBoard").on("click", () => {
   if (!gameStarted) {
     animatePress(".scoreBoard");
+    $(".scoreBoard")
+      .fadeOut(100)
+      .fadeIn(100)
+      .fadeOut(100)
+      .fadeIn(100)
+      .fadeOut(100)
+      .fadeIn(100);
     setTimeout(() => {
+      $(".replay").css({ "z-index": "-1", visibility: "hidden" });
       newSequence();
     }, 1000);
     gameStarted = true;
