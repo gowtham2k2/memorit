@@ -1,36 +1,72 @@
+:root {
+  --concolr1: #031320;
+  --textcolr: #AF708B;
+  --bgcolor: #38205E;
+  --concolr2: #EEE3D7;
+
+}
+
 body {
-  background-color: #27023c;
-  color: #e0ff54;
+  background-color: var(--bgcolor);
+  color: var(--textcolr);
   font-family: 'Press Start 2P', cursive;
   position: relative;
+  display: grid;
+  grid-template: 1fr min-content/ 1fr;
+  place-content: stretch;
+  height: 100vh;
 }
 
 
 .playGround {
-  background-color: #e0ff54;
+  align-self: center;
+  justify-self: stretch;
+  background-color: var(--bgcolor);
   height: 100%;
   display: grid;
-  grid-template: 1fr 40px/ min-content 1fr;
+  grid-template: 1fr/ min-content 1fr;
 }
 
 .playGround>* {
-  padding: 2rem;
-  margin: 2rem;
+  padding: 32px;
+  margin: 32px;
 }
 
 .scoreBoard {
-  background-color: #27023c;
+  background-color: var(--concolr1);
   border-radius: 25px;
   line-height: 4rem;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@keyframes glow {
+  0% {}
+
+  50% {
+    transform: scale(1.1);
+    color: var(--concolr2);
+    box-shadow: 0 0 10px 6px var(--concolr2);
+  }
+
+  100% {}
+}
+
+.active-touch {
   cursor: pointer;
+  transition: transform .2s;
+}
+
+.active-touch:hover {
+  box-shadow: 0 0 10px 5px var(--concolr2);
+  color: var(--concolr2);
+  transform: scale(1.06);
 }
 
 .tile-wrapper {
   border-radius: 25px;
-  background-color: #27023c;
+  background-color: var(--concolr1);
   display: grid;
   grid-template: repeat(2, 1fr)/repeat(2, 1fr);
   place-items: center;
@@ -42,7 +78,7 @@ body {
   height: 250px;
   width: 250px;
   border-radius: 50%;
-  border: 5px solid #e9e9be;
+  border: 5px solid var(--concolr2);
 }
 
 .game-over-theme {
@@ -80,11 +116,16 @@ body {
   height: 300px;
   width: 300px;
   margin: -150px;
-  z-index: -1;
+  border-radius: 50%;
+  transition: transform .2s;
+}
+
+.replay:hover {
+  transform: scale(1.2) rotateZ(360deg);
 }
 
 footer {
-  background-color: #27023c;
+  background-color: var(--concolr1);
   margin: 5px 0 0 0 !important;
   grid-area: 2/1/-1/-1;
   padding: 5px !important;
@@ -93,11 +134,11 @@ footer {
 footer>a {
   text-decoration: none;
   font-size: .8rem;
-  color: #9a28db;
+  color: var(--textcolr);
 }
 
 footer>a:hover {
-  color: #e0ff54;
+  color: var(--concolr2);
 }
 
 @media(max-width: 1400px) {

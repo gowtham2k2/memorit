@@ -10,17 +10,10 @@ var level = 0;
 // pressing any key event
 $(document).on("keydown", () => {
   if (!gameStarted) {
-    $(".replay")
-      .fadeOut(100)
-      .fadeIn(100)
-      .fadeOut(100)
-      .fadeIn(100)
-      .fadeOut(100)
-      .fadeIn(100);
     setTimeout(() => {
       $(".replay").css({ "z-index": "-1", visibility: "hidden" });
       newSequence();
-    }, 1000);
+    }, 500);
     gameStarted = true;
   }
 });
@@ -29,17 +22,10 @@ $(document).on("keydown", () => {
 $(".scoreBoard").on("click", () => {
   if (!gameStarted) {
     animatePress(".scoreBoard");
-    $(".scoreBoard")
-      .fadeOut(100)
-      .fadeIn(100)
-      .fadeOut(100)
-      .fadeIn(100)
-      .fadeOut(100)
-      .fadeIn(100);
     setTimeout(() => {
       $(".replay").css({ "z-index": "-1", visibility: "hidden" });
       newSequence();
-    }, 1000);
+    }, 500);
     gameStarted = true;
   }
 });
@@ -54,11 +40,13 @@ $(".replay").on("click", () => {
       .fadeOut(100)
       .fadeIn(100)
       .fadeOut(100)
-      .fadeIn(100);
+      .fadeIn(100)
+      .fadeOut(100)
+      .css({ display: "none" });
+    $(".scoreBoard").removeClass("active-touch");
     setTimeout(() => {
-      $(".replay").css({ "z-index": "-1", visibility: "hidden" });
       newSequence();
-    }, 1000);
+    }, 500);
     gameStarted = true;
   }
 });
@@ -78,14 +66,21 @@ $(".tile").on("click", (e) => {
 function newSequence() {
   level++;
   userPattern = [];
-  $(".scoreBoard").text("Level " + level);
+  $(".scoreBoard")
+    .text("Level " + level)
+    .css({ animation: "glow 300ms linear" });
   let randomChosenColor = colors[Math.floor(Math.random() * colors.length)];
-  playBgm(randomChosenColor);
-  $(`.tile-wrapper>#${randomChosenColor}`)
-    .fadeOut(100)
-    .fadeIn(100)
-    .fadeOut(100)
-    .fadeIn(100);
+  setTimeout(() => {
+    playBgm(randomChosenColor);
+    $(`.tile-wrapper>#${randomChosenColor}`)
+      .fadeOut(100)
+      .fadeIn(100)
+      .fadeOut(100)
+      .fadeIn(100);
+  }, 500);
+  setTimeout(() => {
+    $(".scoreBoard").css({ animation: "none" });
+  }, 500);
   console.log(randomChosenColor);
   gamePattern.push(randomChosenColor);
 }
@@ -113,13 +108,13 @@ function checkResult(currentLevel) {
       }, 1000);
     }
   } else {
-    playBgm("wrong");
     $("body").addClass("game-over-theme");
-    $(".scoreBoard").text("Game Over...!!!");
+    $(".scoreBoard").text("Game Over!!!");
+    playBgm("wrong");
     setTimeout(() => {
       $("body").removeClass("game-over-theme");
-    }, 1000);
-    $(".replay").css({ "z-index": "1", visibility: "visible" });
+    }, 2000);
+    $(".replay").css({ display: "block" });
 
     startOver();
   }
@@ -132,6 +127,8 @@ function startOver() {
   level = 0;
   gameStarted = false;
   setTimeout(() => {
-    $(`.scoreBoard`).text("Tap me or Replay ↻ icon to Restart");
+    $(`.scoreBoard`)
+      .text("Tap me or Tap Replay ↻ icon to Restart")
+      .addClass("active-touch");
   }, 2000);
 }
