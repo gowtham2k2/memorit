@@ -10,7 +10,15 @@ var level = 0;
 // pressing any key event
 $(document).on("keydown", () => {
   if (!gameStarted) {
+    $(".replay")
+      .fadeOut(100)
+      .fadeIn(100)
+      .fadeOut(100)
+      .fadeIn(100)
+      .fadeOut(100)
+      .fadeIn(100);
     setTimeout(() => {
+      $(".replay").css({ display: "none" });
       newSequence();
     }, 1000);
     gameStarted = true;
@@ -21,7 +29,15 @@ $(document).on("keydown", () => {
 $(".scoreBoard").on("click", () => {
   if (!gameStarted) {
     animatePress(".scoreBoard");
+    $(".scoreBoard")
+      .fadeOut(100)
+      .fadeIn(100)
+      .fadeOut(100)
+      .fadeIn(100)
+      .fadeOut(100)
+      .fadeIn(100);
     setTimeout(() => {
+      $(".replay").css({ display: "none" });
       newSequence();
     }, 1000);
     gameStarted = true;
@@ -40,7 +56,7 @@ $(".replay").on("click", () => {
       .fadeOut(100)
       .fadeIn(100);
     setTimeout(() => {
-      $(".replay").css({ "z-index": "-1", visibility: "hidden" });
+      $(".replay").css({ display: "none" });
       newSequence();
     }, 1000);
     gameStarted = true;
@@ -97,13 +113,13 @@ function checkResult(currentLevel) {
       }, 1000);
     }
   } else {
-    playBgm("wrong");
     $("body").addClass("game-over-theme");
     $(".scoreBoard").text("Game Over...!!!");
+    playBgm("wrong");
     setTimeout(() => {
       $("body").removeClass("game-over-theme");
     }, 1000);
-    $(".replay").css({ "z-index": "1", visibility: "visible" });
+    $(".replay").css({ display: "block" });
 
     startOver();
   }
@@ -116,6 +132,6 @@ function startOver() {
   level = 0;
   gameStarted = false;
   setTimeout(() => {
-    $(`.scoreBoard`).text("Tap me or Replay ↻ icon to Restart");
+    $(`.scoreBoard`).text("Tap me or Tap Replay ↻ icon to Restart");
   }, 2000);
 }
