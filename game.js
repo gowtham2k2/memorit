@@ -11,9 +11,9 @@ var level = 0;
 $(document).on("keydown", () => {
   if (!gameStarted) {
     setTimeout(() => {
-      $(".replay").css({ "z-index": "-1", visibility: "hidden" });
+      $(".replay").css("display", "none");
       newSequence();
-    }, 500);
+    }, 1000);
     gameStarted = true;
   }
 });
@@ -23,9 +23,9 @@ $(".scoreBoard").on("click", () => {
   if (!gameStarted) {
     animatePress(".scoreBoard");
     setTimeout(() => {
-      $(".replay").css({ "z-index": "-1", visibility: "hidden" });
+      $(".replay").css("display", "none");
       newSequence();
-    }, 500);
+    }, 1000);
     gameStarted = true;
   }
 });
@@ -46,7 +46,7 @@ $(".replay").on("click", () => {
     $(".scoreBoard").removeClass("active-touch");
     setTimeout(() => {
       newSequence();
-    }, 500);
+    }, 1000);
     gameStarted = true;
   }
 });
@@ -114,7 +114,7 @@ function checkResult(currentLevel) {
     setTimeout(() => {
       $("body").removeClass("game-over-theme");
     }, 2000);
-    $(".replay").css({ display: "block" });
+    $(".replay").css("display", "block");
 
     startOver();
   }
