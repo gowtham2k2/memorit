@@ -37,7 +37,7 @@ $(".scoreBoard").on("click", () => {
       .fadeOut(100)
       .fadeIn(100);
     setTimeout(() => {
-      $(".replay").css({ display: "none" });
+      $(".replay").css({ display: "none", "z-index": "-1" });
       newSequence();
     }, 1000);
     gameStarted = true;
