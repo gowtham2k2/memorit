@@ -7,9 +7,10 @@ var level = 0;
 //   $(".scoreBoard").fadeOut(500).fadeIn(500);
 // }, 1000);
 
-// pressing any key event
+// pressing any key start event
 $(document).on("keydown", () => {
   if (!gameStarted) {
+    $(".scoreBoard").removeClass("active-touch");
     setTimeout(() => {
       $(".replay").css("display", "none");
       newSequence();
@@ -18,10 +19,40 @@ $(document).on("keydown", () => {
   }
 });
 
-// clicking scoreboard event
+// clicking scoreboard start event
 $(".scoreBoard").on("click", () => {
   if (!gameStarted) {
+    $(".play").css("display", "none");
     animatePress(".scoreBoard");
+    $("body")
+      .fadeOut(100)
+      .fadeIn(100)
+      .fadeOut(100)
+      .fadeIn(100)
+      .fadeOut(100)
+      .fadeIn(100);
+    $(".scoreBoard").removeClass("active-touch");
+    setTimeout(() => {
+      $(".replay").css("display", "none");
+      newSequence();
+    }, 1000);
+    gameStarted = true;
+  }
+});
+
+// clicking play button
+$(".play").on("click", () => {
+  if (!gameStarted) {
+    $(".play").css("display", "none");
+    animatePress(".play");
+    $("body")
+      .fadeOut(100)
+      .fadeIn(100)
+      .fadeOut(100)
+      .fadeIn(100)
+      .fadeOut(100)
+      .fadeIn(100);
+    $(".scoreBoard").removeClass("active-touch");
     setTimeout(() => {
       $(".replay").css("display", "none");
       newSequence();

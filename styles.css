@@ -108,20 +108,38 @@ body {
   background-color: grey;
 }
 
+.play {
+  cursor: pointer;
+  height: 250px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: height .2s;
+  animation: breath;
+}
+
+.play:hover {
+  box-shadow: 0 0 10px 3px orange;
+  border: none;
+  border-radius: 25px;
+  height: 300px;
+}
+
 .replay {
   cursor: pointer;
   position: absolute;
   top: 50%;
   left: 50%;
+  transform: translate(-50%, -50%);
   height: 300px;
-  width: 300px;
-  margin: -150px;
   border-radius: 50%;
-  transition: transform .2s;
+  transition: height .2s;
+  display: none;
 }
 
 .replay:hover {
-  transform: scale(1.2) rotateZ(360deg);
+  height: 400px;
 }
 
 footer {
