@@ -115,7 +115,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  transition: height .2s;
+  transition: transform .2s;
   animation: breath;
 }
 
@@ -123,7 +123,7 @@ body {
   box-shadow: 0 0 10px 3px orange;
   border: none;
   border-radius: 25px;
-  height: 300px;
+  transform: translate(-50%, -50%) scale(1.1);
 }
 
 .replay {
@@ -134,12 +134,12 @@ body {
   transform: translate(-50%, -50%);
   height: 300px;
   border-radius: 50%;
-  transition: height .2s;
+  transition: transform .2s;
   display: none;
 }
 
 .replay:hover {
-  height: 400px;
+  transform: translate(-50%, -50%) scale(1.1);
 }
 
 footer {
