@@ -7,18 +7,6 @@ var level = 0;
 //   $(".scoreBoard").fadeOut(500).fadeIn(500);
 // }, 1000);
 
-// pressing any key start event
-$(document).on("keydown", () => {
-  if (!gameStarted) {
-    $(".scoreBoard").removeClass("active-touch");
-    setTimeout(() => {
-      $(".replay").css("display", "none");
-      newSequence();
-    }, 1000);
-    gameStarted = true;
-  }
-});
-
 // clicking scoreboard start event
 $(".scoreBoard").on("click", () => {
   if (!gameStarted) {

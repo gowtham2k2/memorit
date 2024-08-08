@@ -12,26 +12,25 @@ Memorit is a simple implementation of the classic "Simon" memory game using HTML
   - [Game Rules](#game-rules)
   - [Code Explanation](#code-explanation)
 
- 
-
 ## Getting Started
 
 ### Prerequisites
 
 Make sure you have the following software installed:
+
 - A modern web browser (Chrome, Firefox, Safari, etc.)
 - A code editor (VS Code, Sublime Text, etc.)
 
 ### Installation
 
 1. Clone the repository:
-    ```bash
-    git clone https://github.com/gowtham2k2/memorit.git
-    ```
+   ```bash
+   git clone https://github.com/gowtham2k2/memorit.git
+   ```
 2. Navigate to the project directory:
-    ```bash
-    cd memorit
-    ```
+   ```bash
+   cd memorit
+   ```
 3. Open the `index.html` file in your web browser to start the game.
 
 ## Game Rules
@@ -55,3 +54,11 @@ Make sure you have the following software installed:
 ---
 
 Feel free to modify and enhance the game. Contributions are welcome!
+
+## Output
+
+<div align= "center">
+<img src= "./eg_img/eg1.png" height=400>
+<img src= "./eg_img/eg2.png" height=400>
+<img src= "./eg_img/eg3.png" height=400>
+</div>
